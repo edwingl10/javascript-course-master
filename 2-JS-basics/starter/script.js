@@ -88,7 +88,7 @@ if(height == '23'){ //returns true
 }
 */
 
-/* Coding Challenge 2 */
+/* Coding Challenge 2 
 var johnTeam = (89+120+103)/3;
 var mikeTeam = (116+94+123)/3;
 var maryTeam = (97+134+105)/3;
@@ -106,4 +106,136 @@ switch(true){
     default:
         console.log("john's team ties with mike's team with an average of " + johnTeam);
 
+} */
+
+/* Function Statements and Expressions 
+//function declaration
+//function whatDoYouDo(job, firstName){}
+
+//function expression
+var whatDoYouDo = function(job, firstName){
+    switch(job){
+        case 'teacher':
+            return firstName + ' teaches kids how to code.';
+        case 'driver':
+            return firstName + ' drives a cab in Lisbon.';
+        case 'designer':
+            return firstName + ' designs beautiful websites.';
+        default:
+            return firstName + ' does something else';
+    }
 }
+
+console.log(whatDoYouDo('teacer', 'John'));
+//statements dont produce any result, if, else, while
+//expressions do */
+
+/* Arrays 
+var n = ['John', 'Mark', 'Jane'];
+var years = new Array(1990, 1969, 1948);
+
+names[1] = 'Ben';
+names[names.length] = 'Mary'; //adds element
+
+var john = ['John', 'Smith', 1990, 'teacher', false];
+john.push('blue'); //adds element at end of array 
+john.unshift('Mr.');
+
+john.pop();
+john.pop();
+john.shift();
+
+john.indexOf(1990); */
+
+/* Coding Challenge 3
+function calculateTip(amount){
+    if(amount > 200){
+        return amount * .1;
+    }
+    else if(amount >= 50 && amount <= 200){
+        return amount * .15;
+    }
+    else{
+        return amount * .20;
+    }
+}
+var tip1 = calculateTip(124);
+var tip2 = calculateTip(48);
+var tip3 = calculateTip(268);
+
+tips = [tip1, tip2, tip3];
+total = [tip1+124, tip2+48, tip3+268]; */
+
+/* Objects and properties 
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false
+}
+console.log(john.firstName);
+console.log(john['lastName']);
+var x = 'birthYear';
+console.log(john[x]);
+
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+var jane = new Object();
+jane.name = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane); */
+
+/*Objects and Methods 
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false,
+    calcAge: function(){
+        this.age = 2018 - this.birthYear;
+    }
+};
+
+john.calcAge(); */
+
+
+/* Coding Challenge 4 
+john = {
+    fullName: 'john smith',
+    mass: 92,
+    height: 1.95,
+    calculateBMI: function(){
+        this.bmi = this.mass / (this.height ** 2);
+        return this.bmi;
+    }
+}
+mark = {
+    fullName: 'mark miller',
+    mass: 78,
+    height: 1.69,
+    calculateBMI: function(){
+        this.bmi = this.mass / (this.height ** 2);
+        return this.bmi;
+    }
+}
+
+
+if(john.calculateBMI() > mark.calculateBMI()){
+    console.log(john.fullName + " has a higher BMI with " + john.bmi);
+}
+else if(mark.calculateBMI() > john.calculateBMI()){
+    console.log(mark.fullName + " has a higher BMI with " + mark.bmi);
+}
+else{
+    console.log("Both " + mark.fullName+" and "+ john.fullName+" have same BMI with " + mark.bmi);
+}
+*/
+
+
