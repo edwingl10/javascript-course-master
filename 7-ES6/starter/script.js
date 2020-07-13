@@ -210,3 +210,16 @@ class Person6{
 
 const john = new Person6('John', 1990, 'teacher');
 
+class Athlete6 extends Person6{
+    constructor(name, yearOfBirth, job, olympicGames, medals){
+        super(name, yearOfBirth, job);
+        this.olympicGames = olympicGames;
+        this.medals = medals;
+    }
+    wonMedal(){
+        this.medals++;
+        console.log(medals);
+    }
+}
+
+const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
