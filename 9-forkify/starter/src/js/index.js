@@ -28,6 +28,7 @@ const controlSearch = async () => {
         try{
             //search for recipes 
             await state.search.getResults();
+            state.recipe.parseIngredients();
 
             //render results on ui
             clearLoader();
