@@ -6,6 +6,7 @@ import * as listView from './views/listView';
 import Recipe from './models/Recipe';
 import List from './models/List';
 import Likes from './models/Likes';
+import * as likesView from './views/likesView';
 
 
 /* global state of the app
@@ -87,7 +88,7 @@ const controlRecipe = async () =>{
 
             //render recipe
             clearLoader();
-            recipeView.renderRecipe(state.recipe);
+            recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
 
         } catch(error){
             alert('error processing recipe');
@@ -135,13 +136,18 @@ const controlLike = () =>{
         const newLike = state.likes.addLike(currentID, state.recipe.title,
             state.recipe.author, state.recipe.img);
 
-        console.log(state.likes);
+        likesView.toggleLikeBtn(true);
+        likesView.renderLike(newLike);
 
     }else{
         state.likes.deleteLike(currentID);
-        console.lof(state.likes);
+        likesView.toggleLikeBtn(false);
+        likesView.deleteLike(currentID);
     }
+    likesView.toggleLikeMenu(state.likes.getNumLikes);
 };
+state.likes = new Likes();
+likesView.toggleLikeMenu(state.likes.getNumLikes);
 
 //handling recipe button clicks
 elements.recipe.addEventListener('click', e =>{
@@ -165,5 +171,10 @@ elements.recipe.addEventListener('click', e =>{
     }
 });
 
-
-window.l = new List();
+//restore liked recipe on page load
+window.addEventListener('loads', () => {
+    state.likes = new Likes();
+    state.likes.readStorage();
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
+    state.likes.likes.forEach(like => likesView.renderLike(like));
+});
